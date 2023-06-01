@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <%- include('../views/includes/scripts') %>
+  <style>
+    .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                border-radius: 5px;
+            }
+  </style>
+ <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+   
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
+
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Nodejs Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+
+        </ul>
+          <a href="/"><button class="btn btn-outline-danger" type="submit">Logout</button></a>
+      </div>
+    </div>
+  </nav>
+  <!-- <%- include('../views/includes/Header') %> -->
+    <br><br>
+  
+    <div class="container">
+      <div class="card" style="padding-left: 15px;padding-top: 10px;">
+
+        <p style="font-size: larger;"><a href="../user/getUser" style="color: black;text-decoration: none;"><b>Home</b></a> /
+          <b style="color: blue;">ListUser</b></p>
+
+      </div><br>
+      <br>
+
+      
+     
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Country</th>
+            <th scope="col">Address</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% data.forEach(function(data) { %>
+            <tr>
+              <th scope=" row">
+                <%= data.userid %>
+              </th>
+
+              <td>
+                <%= data.fullName %>
+              </td>
+              <td>
+                <%= data.email %>
+              </td>
+              <td>
+                <%= moment(data.dateOfBirth).format('DD-MM-YYYY') %>
+              </td>
+              <td>
+                <%= data.phoneNumber %>
+              </td>
+              <td>
+                <%= data.country %>
+              </td>
+              <td>
+                <%= data.address %>
+              </td>
+              <td>
+                <% var id %>
+                <div class="modal fade" id="exampleModalToggle<%= id=data.userid%>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Delete Alert</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure want to delete the user ?
+                     
+                    </div>
+                    <div class="modal-footer">
+                      <a href="/user/deleteUser/<%= id %>"><button class="btn btn-danger" data-bs-dismiss="modal" >Delete User</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <a href="/user/getUserById/<%=data.userid%>">Edit</a> | <a href="" data-bs-target="#exampleModalToggle<%=data.userid%>"
+                  data-bs-toggle="modal">Delete</a>
+              </td>
+            </tr>
+            <%});%>
+
+        </tbody>
+      </table>
+    </div>
+    <!-- <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 1500; // 1.5s
+        toastr.info('Page Loaded!');
+        $('#linkButton').click(function() {
+           toastr.success('Click Button');
+        });
+      });
+    </script> -->
+
+</body>
+
+</html>

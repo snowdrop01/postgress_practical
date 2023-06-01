@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+
+    <%- include('../views/includes/scripts') %>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Nodejs Project</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               
+        
+                </ul>
+                  <a href="/service"><button class="btn btn-outline-danger" type="submit">Services</button></a>
+              </div>
+            </div>
+          </nav>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="sign-up-container">
+
+
+            <div style="margin-left: 20px;margin-right: 20px;"><br>
+                <h2 style="font-weight: 600;">Create Account</h2>
+                <form action="/user/addUser" method="POST">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="fullName" placeholder="Full Name" required>
+                        
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
+                        <span class="input-group-text" id="basic-addon2">@example.com</span>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="date" class="form-control" id="birthday" name="dateOfBirth"
+                            placeholder="Date of Birth" required>
+                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Password" min="8" required>
+                        <span class="input-group-text" id="basic-addon2" style="cursor: pointer;">
+                                <i class="fa fa-eye" aria-hidden="false"></i></span>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="password2" name="cn_password"
+                            placeholder="ConfirmPassword" min="8" required>
+                        <span class="input-group-text" id="basic-addon2" style="cursor: pointer;">
+                                <i class="fa fa-eye" aria-hidden="false"></i></span>
+                    </div>
+
+                    <span id="phoneNumber"></span>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" style="cursor: pointer;">+91</span>
+                        <input type="number" class="form-control" name="phoneNumber" id="phoneNumber"
+                            placeholder="Contact Number" required>
+                        <!-- <span id="error" style="color: red;font-size: 15px;"></span> -->
+                    </div>
+
+                    <div class="mb-3">
+                        <select class="form-select" id="validationCustom04" name="country" required>
+                            <option selected disabled value="">Choose Country</option>
+                            <option>India</option>
+                            <option>Australia</option>
+                            <option>USA</option>
+                            <option>Canada</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" aria-label="With textarea" name="address"
+                            placeholder="Address.." required></textarea>
+                    </div>
+                    <button type="submit" onclick="checkfield()">Sign up</button>
+                </form><br>
+            </div>
+                </div>
+            </div>
+            
+                    
+                </div>
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/logic.js"></script>
+    
+</body>
+
+</html>

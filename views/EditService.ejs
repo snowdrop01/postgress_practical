@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditService</title>
+    <%- include('../views/includes/scripts') %>
+        <style>
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                border-radius: 5px;
+            }
+
+            #myDIV {
+               
+                overflow: auto;
+            }
+
+        </style>
+
+
+</head>
+
+<body>
+    <%- include('../views/includes/Header') %>
+        <br><br>
+        <div class="container">
+            <div class="card" style="padding-left: 15px;padding-top: 10px;">
+
+                <p style="font-size: larger;"><a href="../getService"
+                        style="color: black;text-decoration: none;"><b>Home</b></a> / <b
+                        style="color: blue;">EditService</b></p>
+
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card" style="text-align: center;padding-top: 10%;height: 300px;">
+
+                        <i class="fas fa-user-circle" style="font-size: 100px;"></i><br>
+                        <h1><b>
+                                <%= getData.user_name %>
+                            </b></h1>
+                        <p><b>CreatedAt : <%= moment(getData.createdAt).format('YYYY-MM-DD') %></b></p>
+
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="card" style="height: 500px;" id="myDIV">
+                        <div class="container">
+                            <br>
+                         <h4><b>Update Details Form</b></h4><br>
+                         <form action="/service/updateService" method="POST">
+
+                         <input type="hidden" name="serviceid" value="<%= getData.serviceid %>" />
+                         <label class="form-label">Vehicle no.</label>
+                         <div class="input-group mb-3">
+                         <input type="text" class="form-control" id="veh_no" name="veh_no" value="<%= getData.veh_no %>"
+                         placeholder="vehicle no." required>
+                     
+                 </div>
+
+                                <label class="form-label">Pickup Date
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="date" class="form-control" id="pick_dt" name="pick_dt"
+                                        value="<%= moment(getData.pick_dt).format('YYYY-MM-DD') %>"
+                                        placeholder="Pickup date" >
+                                    <span class="input-group-text" id="basic-addon2"><i
+                                            class="fas fa-calendar-alt"></i></span>
+                                </div>
+
+                                <label class="form-label">Drop Date
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="date" class="form-control" id="drop_dt" name="drop_dt"
+                                        value="<%= moment(getData.drop_dt).format('YYYY-MM-DD') %>"
+                                        placeholder="Drop date" >
+                                    <span class="input-group-text" id="basic-addon2"><i
+                                            class="fas fa-calendar-alt"></i></span>
+                                </div>
+
+                        
+                                <div class="mb-3">
+                                    <label class="form-label">location</label>
+                                    <input type="text" class="form-control" name="location" 
+                                        value="<%= getData.location %>" placeholder="location" disabled>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">service price</label>
+                                    <input type="number" class="form-control" name="service_price" 
+                                        value="<%= getData.service_price %>" placeholder="service_price" >
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label class="form-label">Payable price</label>
+                                    <input type="number" class="form-control" name="pay_amount" 
+                                        value="<%= getData.pay_amount %>" placeholder="pay_amount" >
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" style="float: right;">Save
+                                    changes</button>
+                            </form>
+                           
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
